@@ -1,0 +1,69 @@
+# Control de acceso
+anonymous_enable=YES
+local_enable=YES
+write_enable=YES
+local_umask=022
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES
+anon_other_write_enable=YES
+
+# Seguridad
+chroot_local_user=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list
+allow_writeable_chroot=YES
+secure_chroot_dir=/var/run/vsftpd/empty
+rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+ssl_enable=YES
+ssl_sslv2=NO
+ssl_sslv3=NO
+ssl_tlsv1=YES
+ssl_tlsv1_1=YES
+ssl_tlsv1_2=YES
+require_ssl_reuse=NO
+ssl_ciphers=HIGH
+
+# Conexiones
+listen=YES
+listen_ipv6=NO
+connect_from_port_20=YES
+pasv_enable=YES
+pasv_min_port=30000
+pasv_max_port=30999
+pasv_address=xxx.xxx.xxx.xxx
+
+# Registro
+xferlog_enable=YES
+xferlog_file=/var/log/vsftpd.log
+xferlog_std_format=YES
+log_ftp_protocol=YES
+
+# Rendimiento
+async_abor_enable=YES
+idle_session_timeout=600
+data_connection_timeout=120
+accept_timeout=60
+connect_timeout=60
+anon_max_rate=0
+local_max_rate=0
+
+# Opciones específicas de usuario
+userlist_enable=YES
+userlist_deny=NO
+userlist_file=/etc/vsftpd/user_list
+local_root=/home/$USER/ftp
+
+# Mensajes
+ftpd_banner=Welcome to My FTP Server
+message_file=/etc/vsftpd/welcome.msg
+
+# Opciones avanzadas
+async_abor_enable=YES
+ascii_upload_enable=YES
+ascii_download_enable=YES
+ls_recurse_enable=YES
+dirmessage_enable=YES
+use_localtime=YES
+deny_email_enable=YES
+banned_email_file=/etc/vsftpd/banned_emails

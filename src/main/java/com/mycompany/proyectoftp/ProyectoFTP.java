@@ -4,6 +4,8 @@
 
 package com.mycompany.proyectoftp;
 
+
+
 /**
  *
  * @author Windows
@@ -11,6 +13,7 @@ package com.mycompany.proyectoftp;
 public class ProyectoFTP {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        PaginaPrincipal pagina = new PaginaPrincipal();
+        pagina.setVisible(true);
     }
 }

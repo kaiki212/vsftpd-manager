@@ -14,26 +14,26 @@ import java.io.InputStreamReader;
 public class GestionFTP {
     
     // Método para instalar vsftpd
-    private static void instalarVSFTP() {
+    public void instalarVSFTP() {
         String inst = ejecutarComando("zypper --non-interactive install vsftpd");
         
     }
     
     //Metodo para verificar existencia de vsftpd
-    private static String verificarVsftp(){
+    public String verificarVsftp(){
         String existencia = ejecutarComando("zypper search \"vsftp\" | grep vsftpd");
         String res;
         if(existencia.equals("")){
-            res = "No se tiene instalado el servicio vsftpd";
+            res = "Servicio no instalado";
         }
         else{
-            res = "El servicio vsftpd esta instalado";
+            res = "Servicio instalado";
         }
         return res;
     }
   
     //metodo para iniciar el servicio
-    private static String iniciarServicio(String servicio) {
+    public String iniciarServicio(String servicio) {
         String estado = verificarEstadoServicio("vsftpd");
         String res = "";
         
@@ -48,7 +48,7 @@ public class GestionFTP {
     }
 
     // Método para detener el servicio
-    private static String detenerServicio(String servicio) {
+    public String detenerServicio(String servicio) {
         String estado = verificarEstadoServicio("vsftpd");
         String res = "";
         
@@ -64,19 +64,19 @@ public class GestionFTP {
     }
 
     // Método para reiniciar el servicio
-    private static String reiniciarServicio(String servicio) {
+    public String reiniciarServicio(String servicio) {
         ejecutarComando("systemctl restart " + servicio);
         return "Servicio Reiniciado";
     }
 
       
-    private static String verificarEstadoServicio(String servicio) {
+    public String verificarEstadoServicio(String servicio) {
         String comando = "systemctl is-active " + servicio;
         return ejecutarComando(comando).trim();
     }
     
     
-    private static String ejecutarComando(String comando) {
+    private String ejecutarComando(String comando) {
         StringBuilder salida = new StringBuilder();
         
         try {
