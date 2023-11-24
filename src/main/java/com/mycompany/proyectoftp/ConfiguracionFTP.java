@@ -7,7 +7,7 @@ package com.mycompany.proyectoftp;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,10 +21,12 @@ public class ConfiguracionFTP {
         leerDocumento(rutaArchivo);
     }*/
     
-    public String leerDocumento(String ruta){
+    
+    public ArrayList<Configuracion> leerDocumento(String ruta){
         
-        String res = "";
+        ArrayList<Configuracion> configuraciones= new ArrayList<>();
         String rutaArchivo = ruta;
+        int nmrLinea=0;
 
         try (BufferedReader lector = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
@@ -32,34 +34,40 @@ public class ConfiguracionFTP {
                 System.out.println(linea);
                 if(linea.startsWith("#")){
                     //es un comentario
+                    nmrLinea++;
                 }
-                else{
-                    
-                    String lineaConf = leerConfig(linea);
+                else{      
+                    Configuracion lineaConf = leerConfig(linea);
+                    lineaConf.setNmrLinea(nmrLinea);
+                    configuraciones.add(lineaConf);
+                    nmrLinea++;
                 }
                 
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "";
+        return configuraciones;
     }
     
-    public String leerConfig(String linea){
+    public Configuracion leerConfig(String linea){
         
+        Configuracion conf = null ;
         StringBuilder lineaConf = new StringBuilder();
         int indice = 0;
         
         while(indice<linea.length()){
             char caracter = linea.charAt(indice);
             if(caracter == '='){
-                
+                String[] partes = linea.split("=");
+                conf = new Configuracion(partes[0],partes[1]);
+                break;
             }
             else{
-                lineaConf.append(caracter);
-            }
-            
+                indice++;
+            }    
         }
-        return lineaConf.toString();
+        
+        return conf;
     }
 }

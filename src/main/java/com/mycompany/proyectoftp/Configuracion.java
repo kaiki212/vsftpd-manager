@@ -12,10 +12,17 @@ public class Configuracion {
 
     String conf;
     String estado;
+    int linea;
     
     public Configuracion(String conf, String estado){
         this.conf = conf;
         this.estado = estado;
+    }
+    
+    public Configuracion(String conf, String estado, int nmrLinea){
+        this.conf = conf;
+        this.estado = estado;
+        this.linea = nmrLinea;
     }
     
     public String getConf() {
@@ -32,6 +39,14 @@ public class Configuracion {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+    
+    public int getNmrLinea() {
+        return linea;
+    }
+
+    public void setNmrLinea(int nmr) {
+        this.linea = nmr;
     }
     
 }
