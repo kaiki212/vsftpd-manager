@@ -13,10 +13,7 @@ package com.mycompany.proyectoftp;
 public class ProyectoFTP {
 
     public static void main(String[] args) {
-        /*PaginaPrincipal pagina = new PaginaPrincipal();
-        pagina.setVisible(true);*/
-        String conf = "enable_t=YEs";
-        ConfiguracionFTP a= new ConfiguracionFTP();
-        a.leerConfig(conf);
+        PaginaPrincipal pagina = new PaginaPrincipal();
+        pagina.setVisible(true);
     }
 }

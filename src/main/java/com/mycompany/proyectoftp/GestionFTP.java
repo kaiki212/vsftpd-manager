@@ -75,6 +75,10 @@ public class GestionFTP {
         return ejecutarComando(comando).trim();
     }
     
+    public String cambiarConf(Configuracion conf){
+        String comando = "sed -i '+"+conf.getNmrLinea() +"s/.*/"+conf.getConf()+"="+conf.getEstado()+"/' archivo.txt";
+        return ejecutarComando(comando);
+    }
     
     private String ejecutarComando(String comando) {
         StringBuilder salida = new StringBuilder();
