@@ -13,13 +13,15 @@ public class SeleccionDoble extends javax.swing.JPanel {
     /**
      * Creates new form SeleccionDoble
      */
+    Configuracion config;
+    
     public SeleccionDoble() {
         initComponents();
     }
     
     public SeleccionDoble(String config, String yesONo){
         initComponents();
-        jLabel1.setText(config);
+        jlConfig.setText(config);
         botones.add(rbNo);
         botones.add(rbYes);
         if(yesONo.equalsIgnoreCase("Yes")){
@@ -29,11 +31,25 @@ public class SeleccionDoble extends javax.swing.JPanel {
             rbNo.setSelected(true);
         }
     }
+    
+    public SeleccionDoble(Configuracion config){
+        initComponents();
+        jlConfig.setText(config.getConf());
+        botones.add(rbNo);
+        botones.add(rbYes);
+        if(config.getEstado().equalsIgnoreCase("Yes")){
+            rbYes.setSelected(true);
+        }
+        else{
+            rbNo.setSelected(true);
+        }
+    }
+    
     public void setJlabelText(String config){
-        jLabel1.setText(config);
+        jlConfig.setText(config);
     }
     public String getJlabelText(){
-        String texto= jLabel1.getText();
+        String texto= jlConfig.getText();
         return texto;
     }
     /**
@@ -46,11 +62,11 @@ public class SeleccionDoble extends javax.swing.JPanel {
     private void initComponents() {
 
         botones = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
+        jlConfig = new javax.swing.JLabel();
         rbYes = new javax.swing.JRadioButton();
         rbNo = new javax.swing.JRadioButton();
 
-        jLabel1.setText("Configuracion");
+        jlConfig.setText("Configuracion");
 
         botones.add(rbYes);
         rbYes.setText("Yes");
@@ -64,7 +80,7 @@ public class SeleccionDoble extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jlConfig)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addComponent(rbYes)
                 .addGap(18, 18, 18)
@@ -74,7 +90,7 @@ public class SeleccionDoble extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel1)
+                .addComponent(jlConfig)
                 .addComponent(rbYes)
                 .addComponent(rbNo))
         );
@@ -83,7 +99,7 @@ public class SeleccionDoble extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup botones;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jlConfig;
     private javax.swing.JRadioButton rbNo;
     private javax.swing.JRadioButton rbYes;
     // End of variables declaration//GEN-END:variables

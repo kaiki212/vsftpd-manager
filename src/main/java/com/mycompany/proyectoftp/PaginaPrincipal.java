@@ -188,14 +188,14 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private void btnConfigurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarActionPerformed
         // TODO add your handling code here:
         ArrayList<Configuracion> configuraciones = new ArrayList<>();
-        
-        Configuracion num1=new Configuracion("numero_1", "YES");
+        LecturaFTP lector = new LecturaFTP();
+        /*Configuracion num1=new Configuracion("numero_1", "YES");
         Configuracion num2=new Configuracion("numero_2", "no");
         Configuracion num3=new Configuracion("numero_3", "/etc/vsftpd.conf");
         configuraciones.add(num1);
         configuraciones.add(num2);
-        configuraciones.add(num3);
-
+        configuraciones.add(num3);*/
+        
         Configuraciones configs = new Configuraciones(configuraciones, this);
         configs.setVisible(true);
         this.setVisible(false);

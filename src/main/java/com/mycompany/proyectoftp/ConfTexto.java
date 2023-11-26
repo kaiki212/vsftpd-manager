@@ -13,19 +13,29 @@ public class ConfTexto extends javax.swing.JPanel {
     /**
      * Creates new form ConfTexto
      */
+    Configuracion config;
+    
     public ConfTexto() {
         initComponents();
     }
     public ConfTexto(String config, String texto){
         initComponents();
-        jLabel1.setText(config);
+        jlConfig.setText(config);
         jtConfig.setText(texto);
     }
+    
+    public ConfTexto(Configuracion config){
+        initComponents();
+        this.config = config;
+        jlConfig.setText(config.getConf());
+        jtConfig.setText(config.getEstado());
+    }
+    
     public void setJlabelText(String config){
-        jLabel1.setText(config);
+        jlConfig.setText(config);
     }
     public String getJlabelText(){
-        String texto= jLabel1.getText();
+        String texto= jlConfig.getText();
         return texto;
     }
 
@@ -38,10 +48,10 @@ public class ConfTexto extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jlConfig = new javax.swing.JLabel();
         jtConfig = new javax.swing.JTextField();
 
-        jLabel1.setText("Configuracion");
+        jlConfig.setText("Configuracion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -49,7 +59,7 @@ public class ConfTexto extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jlConfig)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(jtConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
@@ -58,7 +68,7 @@ public class ConfTexto extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jlConfig)
                     .addComponent(jtConfig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3))
         );
@@ -66,7 +76,7 @@ public class ConfTexto extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jlConfig;
     private javax.swing.JTextField jtConfig;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,7 +16,9 @@ public class Configuraciones extends javax.swing.JFrame {
     /**
      * Creates new form Configuraciones
      */
+    ArrayList<JPanel> panels;
     PaginaPrincipal pagina;
+    
     public Configuraciones() {
         initComponents();
     }
@@ -32,17 +34,18 @@ public class Configuraciones extends javax.swing.JFrame {
             String conf = configuraciones.get(i).getConf();
             String estado = configuraciones.get(i).getEstado();
             if(estado.equalsIgnoreCase("Yes") || estado.equalsIgnoreCase("No")){
-                JPanel panel = new SeleccionDoble(conf,estado);
+                JPanel panel = new SeleccionDoble(configuraciones.get(i));
                 panels.add(panel);
             }
             else{
-                JPanel panel = new ConfTexto(conf,estado);
+                JPanel panel = new ConfTexto(configuraciones.get(i));
                 panels.add(panel);
             }
             
             
         }
         for (int i=0;i<panels.size(); i++){
+            this.panels = panels;
             container.add(panels.get(i));
         }
         jScrollPane2.setViewportView(container);
@@ -125,6 +128,7 @@ public class Configuraciones extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**

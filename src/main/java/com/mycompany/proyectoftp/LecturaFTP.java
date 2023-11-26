@@ -13,13 +13,7 @@ import java.util.ArrayList;
  *
  * @author Windows
  */
-public class ConfiguracionFTP {
-    /*public static void main(String[] args) {
-        // Reemplaza la ruta y el nombre del archivo con la ubicación completa de tu archivo
-        String rutaArchivo = "C:\\Users\\Windows\\Documents\\NetBeansProjects\\ProyectoFTP\\src\\main\\java\\com\\mycompany\\proyectoftp\\vsftpd.txt";
-
-        leerDocumento(rutaArchivo);
-    }*/
+public class LecturaFTP {
     
     
     public ArrayList<Configuracion> leerDocumento(String ruta){
@@ -31,7 +25,7 @@ public class ConfiguracionFTP {
         try (BufferedReader lector = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
             while ((linea = lector.readLine()) != null) {
-                System.out.println(linea);
+                
                 if(linea.startsWith("#")){
                     //es un comentario
                     nmrLinea++;
