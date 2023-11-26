@@ -128,7 +128,9 @@ public class Configuraciones extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        
+        for(int i=0; i<panels.size(); i++){
+            
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**

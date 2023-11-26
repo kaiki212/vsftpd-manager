@@ -38,6 +38,16 @@ public class ConfTexto extends javax.swing.JPanel {
         String texto= jlConfig.getText();
         return texto;
     }
+    public void setConfiguracion(Configuracion config){
+        this.config = config;
+    }
+    public Configuracion getConfiguracion(){
+        return config;
+    }
+    public String getEstado(){
+        String res = jtConfig.getText();
+        return res;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

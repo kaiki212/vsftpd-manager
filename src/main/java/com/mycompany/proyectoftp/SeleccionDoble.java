@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyectoftp;
 
+import javax.swing.ButtonModel;
+
 /**
  *
  * @author Windows
@@ -52,6 +54,23 @@ public class SeleccionDoble extends javax.swing.JPanel {
         String texto= jlConfig.getText();
         return texto;
     }
+    public String getYesONO(){
+        ButtonModel selectedButton = botones.getSelection();
+        String res="";
+        if (selectedButton.getActionCommand().equalsIgnoreCase("Yes")) {
+            res = "Yes";
+        } else if (selectedButton.getActionCommand().equalsIgnoreCase("No")) {
+            res = "No";
+        }
+        return res;
+    }
+    public void setConfiguracion(Configuracion config){
+        this.config = config;
+    }
+    public Configuracion getConfiguracion(){
+        return config;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
