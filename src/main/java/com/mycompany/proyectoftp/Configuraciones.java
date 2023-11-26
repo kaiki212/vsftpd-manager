@@ -16,7 +16,8 @@ public class Configuraciones extends javax.swing.JFrame {
     /**
      * Creates new form Configuraciones
      */
-    ArrayList<JPanel> panels;
+    ArrayList<SeleccionDoble> panelesD = new ArrayList<>();
+    ArrayList<ConfTexto> panelesT = new ArrayList<>();
     PaginaPrincipal pagina;
     
     public Configuraciones() {
@@ -35,17 +36,20 @@ public class Configuraciones extends javax.swing.JFrame {
             String estado = configuraciones.get(i).getEstado();
             if(estado.equalsIgnoreCase("Yes") || estado.equalsIgnoreCase("No")){
                 JPanel panel = new SeleccionDoble(configuraciones.get(i));
+                SeleccionDoble tmp = new SeleccionDoble(configuraciones.get(i));
+                panelesD.add(tmp);
                 panels.add(panel);
             }
             else{
                 JPanel panel = new ConfTexto(configuraciones.get(i));
+                ConfTexto tmp = new ConfTexto(configuraciones.get(i));
+                panelesT.add(tmp);
                 panels.add(panel);
             }
             
             
         }
         for (int i=0;i<panels.size(); i++){
-            this.panels = panels;
             container.add(panels.get(i));
         }
         jScrollPane2.setViewportView(container);
@@ -128,9 +132,20 @@ public class Configuraciones extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        for(int i=0; i<panels.size(); i++){
-            
+        GestionFTP gestion = new GestionFTP();
+        for(int i=0; i<panelesD.size(); i++){
+            SeleccionDoble tmp = panelesD.get(i);
+            Configuracion conf = tmp.getConfiguracion();
+            conf.setEstado(tmp.getEstado());
+            String res = gestion.cambiarConf(conf);
         }
+        for(int i=0; i<panelesT.size(); i++){
+            ConfTexto tmp = panelesT.get(i);
+            Configuracion conf = tmp.getConfiguracion();
+            conf.setEstado(tmp.getEstado());
+            String res = gestion.cambiarConf(conf);
+        }
+        JOptionPane.showMessageDialog(null, "Cambios exitosos");
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**

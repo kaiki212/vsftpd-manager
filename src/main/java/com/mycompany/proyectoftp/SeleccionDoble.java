@@ -54,7 +54,7 @@ public class SeleccionDoble extends javax.swing.JPanel {
         String texto= jlConfig.getText();
         return texto;
     }
-    public String getYesONO(){
+    public String getEstado(){
         ButtonModel selectedButton = botones.getSelection();
         String res="";
         if (selectedButton.getActionCommand().equalsIgnoreCase("Yes")) {

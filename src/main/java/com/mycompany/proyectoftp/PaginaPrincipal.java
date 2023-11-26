@@ -175,13 +175,13 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         String res;
         if(indice == 0){
             res = gestion.detenerServicio("Vsftpd");
-            JOptionPane.showInputDialog(res);
+            JOptionPane.showMessageDialog(null, res);
         }else if(indice == 1){
             res = gestion.iniciarServicio("Vsftpd");
-            JOptionPane.showInputDialog(res);
+            JOptionPane.showMessageDialog(null, res);
         }else if(indice == 2){
             res = gestion.reiniciarServicio("Vsftpd");
-            JOptionPane.showInputDialog(res);
+            JOptionPane.showMessageDialog(null, res);
         }
     }//GEN-LAST:event_btnGuardarEstadoActionPerformed
 
@@ -189,13 +189,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArrayList<Configuracion> configuraciones = new ArrayList<>();
         LecturaFTP lector = new LecturaFTP();
-        /*Configuracion num1=new Configuracion("numero_1", "YES");
-        Configuracion num2=new Configuracion("numero_2", "no");
-        Configuracion num3=new Configuracion("numero_3", "/etc/vsftpd.conf");
-        configuraciones.add(num1);
-        configuraciones.add(num2);
-        configuraciones.add(num3);*/
-        
+        configuraciones = lector.leerDocumento("/etc/vsftpd.conf");
         Configuraciones configs = new Configuraciones(configuraciones, this);
         configs.setVisible(true);
         this.setVisible(false);
