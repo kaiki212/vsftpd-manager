@@ -23,7 +23,7 @@ public class GestionFTP {
     
     //Metodo para verificar existencia de vsftpd
     public String verificarVsftp(){
-        String existencia = ejecutarComando("zypper search -si vsftpd | grep vsftpd");
+        String existencia = ejecutarComando("rpm -qa | grep vsftpd");
         String res;
         JOptionPane.showMessageDialog(null, existencia);
         if(existencia.equals("")){
