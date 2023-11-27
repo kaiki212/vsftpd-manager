@@ -85,9 +85,12 @@ public class GestionFTP {
     
     private String ejecutarComando(String comando) {
         StringBuilder salida = new StringBuilder();
-        
+
         try {
-            Process proceso = Runtime.getRuntime().exec(comando);
+            String[] partesComando = { "/bin/bash", "-c", comando };
+            ProcessBuilder builder = new ProcessBuilder(partesComando);
+            Process proceso = builder.start();
+
             BufferedReader lector = new BufferedReader(new InputStreamReader(proceso.getInputStream()));
 
             String linea;
