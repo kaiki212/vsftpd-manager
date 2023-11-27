@@ -55,9 +55,16 @@ public class LecturaFTP {
             char caracter = linea.charAt(indice);
             if(caracter == '='){
                 String[] partes = linea.split("=");
-                JOptionPane.showMessageDialog(null, partes[0] +"y"+partes[1]);
-                conf = new Configuracion(partes[0],partes[1]);
-                break;
+                if(partes.length>1){
+                    JOptionPane.showMessageDialog(null, partes[0] +" y "+partes[1]);
+                    conf = new Configuracion(partes[0],partes[1]);
+                    break;
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, partes[0]);
+                    conf = new Configuracion(partes[0],"");
+                    break;
+                }
             }
             else{
                 indice++;
