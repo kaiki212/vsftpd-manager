@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -54,6 +55,7 @@ public class LecturaFTP {
             char caracter = linea.charAt(indice);
             if(caracter == '='){
                 String[] partes = linea.split("=");
+                JOptionPane.showMessageDialog(null, partes[0] +"y"+partes[1]);
                 conf = new Configuracion(partes[0],partes[1]);
                 break;
             }

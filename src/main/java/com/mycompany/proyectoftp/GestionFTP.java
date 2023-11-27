@@ -25,12 +25,11 @@ public class GestionFTP {
     public String verificarVsftp(){
         String existencia = ejecutarComando("rpm -qa | grep vsftpd");
         String res;
-        JOptionPane.showMessageDialog(null, existencia);
         if(existencia.contains("vsftpd")){
-            res = "Servicio no instalado";
+            res = "Servicio instalado";
         }
         else{
-            res = "Servicio instalado";
+            res = "Servicio no instalado";
         }
         return res;
     }
