@@ -14,6 +14,10 @@ public class Configuracion {
     String estado;
     int linea;
     
+    public Configuracion(){
+        
+    }
+    
     public Configuracion(String conf, String estado){
         this.conf = conf;
         this.estado = estado;

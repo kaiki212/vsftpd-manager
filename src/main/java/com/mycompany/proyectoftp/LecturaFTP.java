@@ -47,7 +47,7 @@ public class LecturaFTP {
     
     public Configuracion leerConfig(String linea){
         
-        Configuracion conf = null ;
+        Configuracion conf = new Configuracion() ;
         StringBuilder lineaConf = new StringBuilder();
         int indice = 0;
         
