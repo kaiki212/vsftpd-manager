@@ -17,12 +17,13 @@ public class GestionFTP {
     // Método para instalar vsftpd
     public void instalarVSFTP() {
         String inst = ejecutarComando("zypper --non-interactive install vsftpd");
+        JOptionPane.showMessageDialog(null, "Instalacion exitosa");
         
     }
     
     //Metodo para verificar existencia de vsftpd
     public String verificarVsftp(){
-        String existencia = ejecutarComando("zypper search \"vsftp\" | grep vsftpd");
+        String existencia = ejecutarComando("zypper search -si vsftpd | grep vsftpd");
         String res;
         JOptionPane.showMessageDialog(null, existencia);
         if(existencia.equals("")){
