@@ -6,6 +6,7 @@ package com.mycompany.proyectoftp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +24,7 @@ public class GestionFTP {
     public String verificarVsftp(){
         String existencia = ejecutarComando("zypper search \"vsftp\" | grep vsftpd");
         String res;
+        JOptionPane.showMessageDialog(null, existencia);
         if(existencia.equals("")){
             res = "Servicio no instalado";
         }
