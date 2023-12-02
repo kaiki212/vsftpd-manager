@@ -21,7 +21,7 @@ public class LecturaFTP {
         
         ArrayList<Configuracion> configuraciones= new ArrayList<>();
         String rutaArchivo = ruta;
-        int nmrLinea=0;
+        int nmrLinea=1;
 
         try (BufferedReader lector = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
@@ -34,7 +34,9 @@ public class LecturaFTP {
                 else{      
                     Configuracion lineaConf = leerConfig(linea);
                     lineaConf.setNmrLinea(nmrLinea);
-                    configuraciones.add(lineaConf);
+                    if(lineaConf.getConf()!=null){
+                        configuraciones.add(lineaConf);
+                    }  
                     nmrLinea++;
                 }
                 
@@ -55,11 +57,11 @@ public class LecturaFTP {
             char caracter = linea.charAt(indice);
             if(caracter == '='){
                 String[] partes = linea.split("=");
-                if(partes.length>1){
+                if(partes.length>1 && partes[0]!=null){
                     conf = new Configuracion(partes[0],partes[1]);
                     break;
                 }
-                else{
+                else if(partes[0]!=null){
                     conf = new Configuracion(partes[0],"");
                     break;
                 }
