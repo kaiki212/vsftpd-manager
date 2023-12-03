@@ -56,14 +56,11 @@ public class SeleccionDoble extends javax.swing.JPanel {
         return texto;
     }
     public String getEstado(){
-        JRadioButton selectedButton = (JRadioButton)botones.getSelection();
         String res="";
-        if (selectedButton != null) {
-            if (selectedButton.getText().equalsIgnoreCase("Yes")) {
-                res = "Yes";
-            } else if (selectedButton.getText().equalsIgnoreCase("No")) {
-                res = "No";
-            }
+        if (rbYes.isSelected()) {
+            res = "Yes";
+        } else if (rbNo.isSelected()) {
+            res = "No";
         }
         return res;
     }
