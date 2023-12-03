@@ -78,7 +78,7 @@ public class GestionFTP {
     }
     
     public String cambiarConf(Configuracion conf){
-        String comando = "sed -i '+"+conf.getNmrLinea() +"s/.*/"+conf.getConf()+"="+conf.getEstado()+"/' archivo.txt";
+        String comando = "sed -i '+"+conf.getNmrLinea() +"s/.*/"+conf.getConf()+"="+conf.getEstado()+"/' vsftpd.conf";
         return ejecutarComando(comando);
     }
     
