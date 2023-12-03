@@ -5,6 +5,7 @@
 package com.mycompany.proyectoftp;
 
 import javax.swing.ButtonModel;
+import javax.swing.JRadioButton;
 
 /**
  *
@@ -55,12 +56,14 @@ public class SeleccionDoble extends javax.swing.JPanel {
         return texto;
     }
     public String getEstado(){
-        ButtonModel selectedButton = botones.getSelection();
+        JRadioButton selectedButton = (JRadioButton)botones.getSelection();
         String res="";
-        if (selectedButton.getActionCommand().equalsIgnoreCase("Yes")) {
-            res = "Yes";
-        } else if (selectedButton.getActionCommand().equalsIgnoreCase("No")) {
-            res = "No";
+        if (selectedButton != null) {
+            if (selectedButton.getText().equalsIgnoreCase("Yes")) {
+                res = "Yes";
+            } else if (selectedButton.getText().equalsIgnoreCase("No")) {
+                res = "No";
+            }
         }
         return res;
     }
