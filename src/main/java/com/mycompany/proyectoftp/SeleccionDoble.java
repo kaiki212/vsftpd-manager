@@ -24,6 +24,7 @@ public class SeleccionDoble extends javax.swing.JPanel {
     
     public SeleccionDoble(String config, String yesONo){
         initComponents();
+        this.config = new Configuracion(config, yesONo);
         jlConfig.setText(config);
         botones.add(rbNo);
         botones.add(rbYes);
@@ -37,6 +38,7 @@ public class SeleccionDoble extends javax.swing.JPanel {
     
     public SeleccionDoble(Configuracion config){
         initComponents();
+        this.config=config;
         jlConfig.setText(config.getConf());
         botones.add(rbNo);
         botones.add(rbYes);
