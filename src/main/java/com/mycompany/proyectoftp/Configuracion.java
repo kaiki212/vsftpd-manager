@@ -10,8 +10,8 @@ package com.mycompany.proyectoftp;
  */
 public class Configuracion {
 
-    String conf;
-    String estado;
+    String conf="";
+    String estado="";
     int linea;
     
     public Configuracion(){
